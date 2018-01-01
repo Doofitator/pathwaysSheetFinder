@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>Pathways Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+<script type="text/javascript">
+    function sheet() {
+        var name = document.getElementById("number").value
+        window.location.href = "https://mpcontent.blob.core.windows.net/worksheets/" + name + "-W.pdf"
+    }
+    function video() {
+        var name = document.getElementById("number").value
+        window.location.href = "https://mpcontent.blob.core.windows.net/videos/" + name + "-V.mp4"
+    }
+    function load() {
+        document.getElementById("error").style.visibility = "hidden";
+        var currenturl = location.href;
+        console.log(currenturl)
+        if (currenturl === "http://pathways.co.nf/?") {
+        document.getElementById("error").style.visibility = "visible";
+        } else {
+        document.getElementById("error").style.visibility = "hidden";
+    }
+    }
+    function caps(element){
+        element.value = element.value.toUpperCase();
+    }
+    </script>
+    <style type="text/css">
+    body {
+    background-image: url('https://img.mathspathway.com/f5035dd9-ac54-43b7-9d68-967968c72b35/bgcave.jpg');
+    background-color: rgba(255, 255, 255, 0.4);
+    }
+        .Wrapper {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+.form-style-4{
+    width: 450px;
+    font-size: 16px;
+    background: White;
+    padding: 30px 30px 15px 30px;
+    border: 5px solid #27AE60;
+    -webkit-animation:animate-bounce-in-left .5s;
+    animation:animate-bounce-in-left .5s;
+}
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button],
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 textarea,
+.form-style-4 label
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: Black;
+
+}
+.form-style-4 label {
+    display:block;
+    margin-bottom: 10px;
+}
+.form-style-4 label > span{
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
+.form-style-4 input[type=text],
+.form-style-4 input[type=email] 
+{
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed Grey;
+    width: 275px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+.form-style-4 textarea{
+    font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #27AE60;
+    width: 275px;
+    overflow: hidden;
+    resize:none;
+    height:20px;
+}
+
+.form-style-4 textarea:focus, 
+.form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,
+.form-style-4 input[type=email] :focus
+{
+    border-bottom: 1px dashed #27AE60;
+}
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button]{
+    background: #EEEEEE;
+    border: 4px solid #AAAAAA;
+    padding: 8px 10px 8px 10px;
+    border-radius: 0px;
+    color: black;
+}
+.form-style-4 input[type=submit]:hover,
+.form-style-4 input[type=button]:hover{
+background: #27AE61;
+border: 4px solid #27AE60;
+color: white;
+}
+</style>
+</head>
+<body onload="load()">
+    <div align="center" class="Wrapper">
+        <form class="form-style-4">
+<h1>Pathways Finder</h1>
+<p>Simply enter almost any pathways sheet ID below, then choose the media you'd like to open.</p>
+<input type="text" id="number" placeholder="eg. ACMNA154-05" onkeyup="caps(this)" required="true" /><br><br>
+<input type="button" onclick="video()" value="Open video" />
+<input type="button" onclick="sheet()" value="Open sheet" /><br><br><br>
+<span style="color: red;" id="error"><i>Please select the required media.</i></span>
+        </form>
+        
+    </div>
+        </body>
+</html>
